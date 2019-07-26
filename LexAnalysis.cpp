@@ -3,13 +3,6 @@
 
 using namespace std;
 
-bool letter(string tok)
-{
-    for(int i = 0; i < tok.length() ; i++){
-
-    }
-}
-
 int main(){
     string line;
     getline( cin, line);
