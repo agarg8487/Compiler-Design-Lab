@@ -2,6 +2,17 @@
 #include<bits/stdc++.h>
 
 using namespace std;
+int relopPos;
+bool checkrelop(string input){
+    for(int i = 0; i = input.length(); i++)
+    {
+        if( input[i]=="<" || input[i]==">" || input[i]=="=" ){
+            relopPos=i;
+            return true;
+        }
+    }
+    return false;
+}
 
 int main(){
     string line;
@@ -17,7 +28,9 @@ int main(){
     // Tokenizing w.r.t. space ' ' 
     while(getline(check1, intermediate, ' ')) 
     { 
-        inputtokens.push_back(intermediate); 
+        
+        inputtokens.push_back(intermediate);
+         
     }
     // for(auto i=inputtokens.begin(); i!=inputtokens.end();i++){
     //     cout<< (*i)<<endl; 
@@ -84,6 +97,20 @@ int main(){
             temp.second = *i;
             outtokens.push_back(temp);
             continue;
+        }
+        else if (checkrelop(*i))
+        {
+            string delimiter;
+            if((*i)[relopPos +1]== "=" || (*i)[relopPos +1]== ">")
+            {
+                delimiter = (*i)[relopPos]+ (*i)[relopPos +1];
+            }
+            else
+            {
+                delimiter = (*i)[relopPos];
+            }
+            stringstream reloperand((*i));
+            
         }
         else
         {
